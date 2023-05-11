@@ -46,16 +46,19 @@ def translate(word):
 
 
 def importCSV():
-    df = pd.read_csv('dataset/earthquakes_japan.csv',index_col=0)
+    df = pd.read_csv('dataset/earthquakes_japan.csv')
+    df.convert_dtypes()
     countRows = len(df)
 
-    translatedCSV = {"震央地名": [], "最大震度": []}
+    translatedCSV = {'震央地名': [], '最大震度': []}
 
     for index, row in df.iterrows():
-        translatedCSV["震央地名"].append(translate(row["震央地名"]))
-        translatedCSV["最大震度"].append(translate(row["最大震度"]))
+        translatedCSV['震央地名'].append(str(translate(row['震央地名'])))
+
+        translatedCSV['最大震度'].append(str(translate(row['最大震度'])))
 
     df = pd.DataFrame(data=translatedCSV)
-    df.to_csv("japTranslated.csv",sep='\t')
+    df.to_csv("japTranslated.csv", sep='\t')
+
 
 importCSV()
