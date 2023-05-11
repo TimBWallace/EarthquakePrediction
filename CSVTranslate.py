@@ -5,7 +5,7 @@ translator = Translator()
 
 
 def translate(word):
-    language = ('afrikaans', 'af', 'albanian', 'sq', 'amharic', 'am',
+    """languages = ('afrikaans', 'af', 'albanian', 'sq', 'amharic', 'am',
                 'arabic', 'ar', 'armenian', 'hy', 'azerbaijani', 'az',
                 'basque', 'eu', 'belarusian', 'be', 'bengali', 'bn', 'bosnian',
                 'bs', 'bulgarian', 'bg', 'catalan', 'ca',
@@ -40,6 +40,7 @@ def translate(word):
                 'ukrainian', 'uk', 'urdu', 'ur', 'uyghur', 'ug', 'uzbek',
                 'uz', 'vietnamese', 'vi', 'welsh', 'cy', 'xhosa', 'xh',
                 'yiddish', 'yi', 'yoruba', 'yo', 'zulu', 'zu')
+                """
     translation = translator.translate(word, 'english')
     return translation.text
 
