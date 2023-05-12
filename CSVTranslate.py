@@ -1,3 +1,5 @@
+import time
+
 import pandas as pd
 from googletrans import *
 
@@ -41,7 +43,7 @@ def translate(word):
                 'uz', 'vietnamese', 'vi', 'welsh', 'cy', 'xhosa', 'xh',
                 'yiddish', 'yi', 'yoruba', 'yo', 'zulu', 'zu')
                 """
-    translation = translator.translate(word, 'english')
+    translation = translator.translate(word, 'en')
     return translation.text
 
 
@@ -55,11 +57,11 @@ def importCSV():
     """
     for index, row in df.iterrows():
         translatedCSV['震央地名'].append(str(translate(row['震央地名'])))
-
         translatedCSV['最大震度'].append(str(translate(row['最大震度'])))
 
     df = pd.DataFrame(data=translatedCSV)
-    df.to_csv("japTranslated.csv", sep='\t')
+    df.to_csv("japTranslated.csv")
+    print(df)
 
 
 importCSV()
