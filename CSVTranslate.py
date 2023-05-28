@@ -49,12 +49,9 @@ def translate(word):
 
 def importCSV():
     df = pd.read_csv('dataset/earthquakes_japan.csv')
-    #df.convertdtypes()
 
     translatedCSV = {'震央地名': [], '最大震度': []}
-    """if row['震央地名'] is None and row['最大震度']:
-        continue
-    """
+
     for index, row in df.iterrows():
         translatedCSV['震央地名'].append(str(translate(row['震央地名'])))
         translatedCSV['最大震度'].append(str(translate(row['最大震度'])))
